@@ -1,0 +1,22 @@
+server:
+  port: 8763
+  
+spring:
+  application:
+    name: CONFIG-SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ravisri38/configuration
+          clone-on-start: true
+#          username: ravisri38
+#          password: 
+eureka:
+  instance:
+    prefer-ip-address: false
+    hostName: localhost
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

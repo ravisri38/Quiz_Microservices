@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: API-GATEWAY
+  config:
+    import:
+    - optional:configserver:http://localhost:8763
   cloud:
     gateway:
       routes:
@@ -24,11 +27,11 @@ spring:
         locator:
           enabled: true
 
-eureka:
-  instance:
-    prefer-ip-address: false
-    hostName: localhost
-    instance-id: ${spring.application.name}:${server.port}
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+#eureka:
+#  instance:
+#    prefer-ip-address: false
+#    hostName: localhost
+#    instance-id: ${spring.application.name}:${server.port}
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
